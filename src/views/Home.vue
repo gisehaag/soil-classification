@@ -1,13 +1,13 @@
 <template>
-  <theoric-mark></theoric-mark>
+	<theoric-frame></theoric-frame>
 </template>
 
 <script>
-import TheoricMark from '@/components/TheoricMark';
+import TheoricFrame from '@/components/TheoricFrame';
 
 export default {
-  name: 'Home',
+	name: 'Home',
 
-  components: { TheoricMark },
+	components: { TheoricFrame },
 };
 </script>
