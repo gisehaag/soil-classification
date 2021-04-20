@@ -1,24 +1,9 @@
-# soil-classification
+# App para clasificación de suelos
 
-## Project setup
-```
-npm install
-```
+Mucho antes de trabajar como programadora, me recibí y me desarrolle muuuuchos años como ingeniera civil, así que esta aplicación web busca contribuir en ese campo. Javico Vazquez, un colega y amigo me dio la idea, de una app para clasificar suelos, y me entusiasmó! 
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+En ingenieria clasificamos los suelos para poder predecir su comportamiento cuando los utilizamos como materiales para construir distintas estructuras o como apoyo de estás. Fundamentalmente usamos dos métodos que pueden ser utilizados mediante la app.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Por otra parte, como programadora, y con el curso de Vue súper fresco, quería aprovechar todo ese nuevo conocimiento y poder ponerlo en práctica.
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Este es el proyecto de clasificación de suelos terminado! 
