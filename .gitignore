@@ -24,3 +24,7 @@ pnpm-debug.log*
 
 # Prettier files
 .prettierrc.js
+
+# Other files
+*.png
+*.pdf
