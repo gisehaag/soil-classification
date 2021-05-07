@@ -1,6 +1,6 @@
 <template>
 	<div class="">
-		<div class="box flex justify-evenly">
+		<div class="box flex justify-arround">
 			<form
 				novalidate
 				class="inputs text-center"
@@ -11,297 +11,9 @@
 					Ingresa los parámetros del suelo a clasificar:
 				</h2>
 
-				<fieldset class="granulometria">
-					<h3 class="underline mb-4 text-left">Granulometría:</h3>
-					<ul>
-						<li class="">
-							<label class="item-granulometria" for="tamiz1-1/2">
-								<span>% que pasa tamiz 1 1/2" </span>
-								<input
-									id="tamiz112"
-									@change="addDataToGranulometry"
-									v-model="tamiz112"
-									name="tamiz1-1/2"
-									pattern="[0-9,]+"
-									step="any"
-									min="0"
-									max="100"
-									type="number"
-									class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
-									placeholder="entre 0 y 100%"
-								/>
-								<p class="error text-red-400"></p>
-							</label>
-						</li>
-						<li class="">
-							<label class="item-granulometria" for="tamiz1">
-								<span>% que pasa tamiz 1"</span>
-								<input
-									id="tamiz1"
-									@change="addDataToGranulometry"
-									v-model="tamiz1"
-									name="tamiz1"
-									pattern="[0-9,]+"
-									step="any"
-									min="0"
-									max="100"
-									type="number"
-									class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
-									placeholder="entre 0 y 100%"
-								/>
-								<p class="error text-red-400"></p>
-							</label>
-						</li>
-						<li class="">
-							<label class="item-granulometria" for="tamiz3/4">
-								<span>% que pasa tamiz 3/4"</span>
-								<input
-									id="tamiz34"
-									@change="addDataToGranulometry"
-									v-model="tamiz34"
-									name="tamiz3/4"
-									pattern="[0-9,]+"
-									step="any"
-									min="0"
-									max="100"
-									type="number"
-									class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
-									placeholder="entre 0 y 100%"
-								/>
-								<p class="error text-red-400"></p>
-							</label>
-						</li>
-						<li class="mb-4">
-							<label class="item-granulometria" for="tamiz1/2">
-								<span>% que pasa tamiz 1/2"</span>
-								<input
-									id="tamiz12"
-									@change="addDataToGranulometry"
-									v-model="tamiz12"
-									name="tamiz1/2"
-									pattern="[0-9,]+"
-									step="any"
-									min="0"
-									max="100"
-									type="number"
-									class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
-									placeholder="entre 0 y 100%"
-								/>
-								<p class="error text-red-400"></p>
-							</label>
-						</li>
-						<li class="mb-4">
-							<label class="item-granulometria" for="tamiz3/8">
-								<span>% que pasa tamiz 3/8"</span>
-								<input
-									id="tamiz38"
-									@change="addDataToGranulometry"
-									v-model="tamiz38"
-									name="tamiz3/8"
-									pattern="[0-9,]+"
-									step="any"
-									min="0"
-									max="100"
-									type="number"
-									class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
-									placeholder="entre 0 y 100%"
-								/>
-								<p class="error text-red-400"></p>
-							</label>
-						</li>
-						<li class="mb-4">
-							<label class="item-granulometria" for="tamiz4">
-								<span>
-									% que pasa tamiz 4
-									<span class="yellow-text">*</span>
-								</span>
-								<input
-									id="tamiz4"
-									@change="addDataToGranulometry"
-									v-model="tamiz4"
-									name="tamiz4"
-									pattern="[0-9,]+"
-									step="any"
-									required
-									min="0"
-									max="100"
-									type="number"
-									class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
-									placeholder="entre 0 y 100%"
-								/>
-								<p class="error text-red-400"></p>
-							</label>
-						</li>
-						<li class="mb-4">
-							<label class="item-granulometria" for="tamiz10">
-								<span>% que pasa tamiz 10</span>
-								<input
-									id="tamiz10"
-									@change="addDataToGranulometry"
-									v-model="tamiz10"
-									name="tamiz10"
-									pattern="[0-9,]+"
-									step="any"
-									min="0"
-									max="100"
-									type="number"
-									class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
-									placeholder="entre 0 y 100%"
-								/>
-								<p class="error text-red-400"></p>
-							</label>
-						</li>
-						<li class="mb-4">
-							<label class="item-granulometria" for="tamiz40">
-								<span>% que pasa tamiz 40</span>
-								<input
-									id="tamiz40"
-									@change="addDataToGranulometry"
-									v-model="tamiz40"
-									name="tamiz40"
-									pattern="[0-9,]+"
-									step="any"
-									min="0"
-									max="100"
-									type="number"
-									class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
-									placeholder="entre 0 y 100%"
-								/>
-								<p class="error text-red-400"></p>
-							</label>
-						</li>
-						<li class="mb-4">
-							<label class="item-granulometria" for="tamiz100">
-								<span>% que pasa tamiz 100</span>
-								<input
-									id="tamiz100"
-									@change="addDataToGranulometry"
-									v-model="tamiz100"
-									name="tamiz100"
-									pattern="[0-9,]+"
-									step="any"
-									min="0"
-									max="100"
-									type="number"
-									class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
-									placeholder="entre 0 y 100%"
-								/>
-								<p class="error text-red-400"></p>
-							</label>
-						</li>
-						<li class="mb-4">
-							<label class="item-granulometria" for="tamiz200">
-								<span>
-									% que pasa tamiz 200
-									<span class="yellow-text">*</span>
-								</span>
-								<input
-									id="tamiz200"
-									@change="addDataToGranulometry"
-									v-model="tamiz200"
-									required
-									name="tamiz200"
-									pattern="[0-9,]+"
-									step="any"
-									min="0"
-									max="100"
-									type="number"
-									class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
-									placeholder="entre 0 y 100%"
-								/>
-								<p class="error text-red-400"></p>
-							</label>
-						</li>
-					</ul>
-					<p class="text-left text-sm">
-						<span class="yellow-text">(*)</span> Campos requeridos
-					</p>
-				</fieldset>
+				<granulometria :isAashto="isAashto"></granulometria>
+				<plasticidad></plasticidad>
 
-				<fieldset class="pasa-tamiz40">
-					<h3 class="underline mt-8 mb-4 text-left">
-						Consistencia del material que pasa el tamiz 40 (Límites de
-						Atterberg)
-					</h3>
-					<p v-if="tamiz40 > 0" class="italic mb-4 text-left">
-						El material pasante tamiz 40 corresponde al {{ tamiz40 }}%
-					</p>
-
-					<div>
-						<div>
-							<label for="no-plastico" class="block text-left">
-								<input
-									class="w-1/12"
-									v-model="plastico"
-									type="radio"
-									name="plastico"
-									id="no-plastico"
-									:value="false"
-								/><span>Suelo no plástico</span></label
-							>
-						</div>
-						<div>
-							<label for="plastico" class="block text-left mb-6">
-								<input
-									class="w-1/12"
-									v-model="plastico"
-									type="radio"
-									name="plastico"
-									id="plastico"
-									:value="true"
-								/>
-								<span>Ingresar valores de plasticidad</span>
-							</label>
-						</div>
-					</div>
-
-					<div v-if="plastico" class="consistencia">
-						<ul>
-							<li class="mb-3">
-								<label class="" for="limite-liquido"
-									>Límite líquido
-									<input
-										id="limite-liquido"
-										v-model="limiteLiquido"
-										pattern="[0-9,]+"
-										step="any"
-										min="0"
-										max="100"
-										type="number"
-										class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
-										placeholder="Límite líquido"
-									/>
-								</label>
-							</li>
-							<li class="mb-4">
-								<label class="" for="limite-plastico"
-									>Límite plástico
-									<input
-										id="limite-plastico"
-										v-model="limitePlastico"
-										pattern="[0-9,]+"
-										step="any"
-										min="0"
-										max="100"
-										type="number"
-										class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
-										placeholder="Límite Plástico"
-									/>
-								</label>
-							</li>
-						</ul>
-						<p
-							v-show="indicePlasticidad > 0"
-							class="ip text-center font-bold border-4 px-4 py-2 bg-white"
-						>
-							{{
-								indicePlasticidad > 0
-									? `Índice de plásticidad ${indicePlasticidad} `
-									: indicePlasticidad
-							}}
-						</p>
-					</div>
-				</fieldset>
 				<button
 					class="button submit mt-5 hover:bg-white hover:text-black text-white font-bold py-2 px-5 uppercase"
 					type="submit"
@@ -309,6 +21,7 @@
 					Clasificar <span class="emoji">🤓</span>
 				</button>
 			</form>
+
 			<div class="data" id="data">
 				<h2 class="font-bold text-lg my-4">Características del suelo:</h2>
 
@@ -354,25 +67,9 @@
 						</li>
 					</ul>
 				</div>
-				<div class="graphic-box mt-8 bg-white granulometria">
-					<h2 class="underline mb-4">Curva Granulométrica</h2>
-					<div class="graphic relative">
-						<line-chart
-							:data="graphicData"
-							width="400"
-							:download="true"
-							:curve="false"
-							:ymin="0"
-							:ymax="100"
-							xtitle="Diametro de partículas [esc. logarítmica]"
-							ytitle="% pasante"
-							:colors="['#ffb400']"
-							:responsive="true"
-							:maintainAspectRatio="false"
-							aspectRatio="3"
-						></line-chart>
-					</div>
-				</div>
+
+				<curva-granulometrica></curva-granulometrica>
+
 				<div v-if="plastico" class="graphic-box plasticidad mt-8 bg-white">
 					<h2 class="underline mb-4">Carta de plasticidad</h2>
 					<div class="graphic relative">
@@ -414,6 +111,7 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="results-container">
 			<div
 				v-show="clasificando"
@@ -452,67 +150,58 @@
 </template>
 
 <script>
+import granulometria from '@/components/granulometria';
+import plasticidad from '@/components/plasticidad';
+import curvaGranulometrica from '@/components/curvaGranulometrica';
+import soilData from '@/soilData';
+
 export default {
 	name: 'Sucs',
 
+	components: { granulometria, plasticidad, curvaGranulometrica },
+
 	data() {
 		return {
+			isAashto: false,
 			group: null,
 			groupName: null,
 			clasificando: false,
 			fineGroup: null,
 			coarseGroup: null,
 			errorMessage: null,
-			tamiz112: null,
-			tamiz1: null,
-			tamiz34: null,
-			tamiz12: null,
-			tamiz38: null,
-			tamiz4: null,
-			tamiz10: null,
-			tamiz40: null,
-			tamiz100: null,
-			tamiz200: null,
-			plastico: false,
-			limiteLiquido: null,
-			limitePlastico: null,
 			coefUniformidad: null,
 			coefCurvatura: null,
-			isAashto: true,
-			granulometria: null,
-			graphicData: [],
-			tamices: {
-				tamiz112: 37.5,
-				tamiz1: 25,
-				tamiz34: 19,
-				tamiz12: 12.5,
-				tamiz38: 9.5,
-				tamiz4: 4.75,
-				tamiz10: 2,
-				tamiz40: 0.425,
-				tamiz100: 0.15,
-				tamiz200: 0.075,
-			},
 		};
 	},
 
-	props: {
-		soilParams: {
-			type: Object,
-			default: () => {},
-		},
-	},
-
-	created() {
-		this.tamiz10 = this.soilParams.tamiz10;
-		this.tamiz40 = this.soilParams.tamiz40;
-		this.tamiz200 = this.soilParams.tamiz200;
-		this.limiteLiquido = this.soilParams.limiteLiquido;
-		this.limitePlastico = this.soilParams.limitePlastico;
-		this.granulometria = new Map();
-	},
-
 	computed: {
+		tamiz4() {
+			return soilData.data.tamiz4;
+		},
+
+		tamiz40() {
+			return soilData.data.tamiz40;
+		},
+
+		tamiz200() {
+			return soilData.data.tamiz200;
+		},
+
+		plastico() {
+			return soilData.data.plastico;
+		},
+		limiteLiquido() {
+			return soilData.data.limiteLiquido;
+		},
+
+		limitePlastico() {
+			return soilData.data.limitePlastico;
+		},
+
+		granulometria() {
+			return soilData.data.granulometria;
+		},
+
 		plasticityChart() {
 			if (this.plastico) {
 				let plasticityChart = [
@@ -619,7 +308,9 @@ export default {
 
 		lineaA() {
 			if (this.plastico) {
-				return this.IPTeorico <= this.indicePlasticidad ? 'arriba' : 'debajo';
+				return this.IPTeorico <= this.indicePlasticidad
+					? 'arriba'
+					: 'debajo';
 			}
 			return null;
 		},
@@ -649,7 +340,6 @@ export default {
 		getGroup() {
 			this.clasificando = true;
 			let resultBox = document.querySelector('.results');
-
 			resultBox.scrollIntoView({ block: 'center', behavior: 'smooth' });
 
 			this.errorMessage = '';
@@ -752,7 +442,9 @@ export default {
 
 				case 'GC':
 					this.groupName =
-						this.arenas < 15 ? 'Grava arcillosa' : 'Grava arcillosa con arena';
+						this.arenas < 15
+							? 'Grava arcillosa'
+							: 'Grava arcillosa con arena';
 					break;
 
 				case 'GC-GM':
@@ -811,7 +503,9 @@ export default {
 
 				case 'SC':
 					this.groupName =
-						this.gravas < 15 ? 'Arena arcillosa' : 'Arena arcillosa con grava';
+						this.gravas < 15
+							? 'Arena arcillosa'
+							: 'Arena arcillosa con grava';
 					break;
 
 				case 'SC-SM':
@@ -877,15 +571,21 @@ export default {
 							this.groupName = 'Limo';
 						} else {
 							this.groupName =
-								this.arenas < this.gravas ? 'Limo con grava' : 'Limo con arena';
+								this.arenas < this.gravas
+									? 'Limo con grava'
+									: 'Limo con arena';
 						}
 					} else {
 						if (this.arenas < this.gravas) {
 							this.groupName =
-								this.arenas < 15 ? 'Limo gravoso' : 'Limo gravoso con arena';
+								this.arenas < 15
+									? 'Limo gravoso'
+									: 'Limo gravoso con arena';
 						} else {
 							this.groupName =
-								this.gravas < 15 ? 'Limo arenoso' : 'Limo arenoso con grava';
+								this.gravas < 15
+									? 'Limo arenoso'
+									: 'Limo arenoso con grava';
 						}
 					}
 					break;
@@ -1066,88 +766,9 @@ export default {
 			let diam60 = this.setDn(60);
 
 			this.coefUniformidad = (diam60 / diam10).toFixed(2);
-			this.coefCurvatura = (Math.pow(diam30, 2) / (diam10 * diam60)).toFixed(2);
-		},
-
-		addDataToGranulometry(e) {
-			let tamiz = e.target.id;
-			let pasante = e.target.value;
-
-			const inputMsgError = document.querySelector(`#${tamiz} + p.error`);
-			const itemsGranulometria = document.querySelectorAll(
-				`label.item-granulometria`
+			this.coefCurvatura = (Math.pow(diam30, 2) / (diam10 * diam60)).toFixed(
+				2
 			);
-
-			itemsGranulometria.forEach((item) => {
-				let message = item.querySelector('p.error');
-				let input = item.querySelector('input');
-
-				message.innerHTML = '';
-				input.classList.remove('invalid');
-			});
-
-			if (pasante < 0) {
-				inputMsgError.innerHTML = `🙄 Ingresa un valor positivo`;
-				e.target.focus();
-				e.target.classList.add('invalid');
-			}
-
-			if (pasante > 100) {
-				inputMsgError.innerHTML = `😳 El valor ingresado debe ser menor que 100%`;
-				e.target.focus();
-				e.target.classList.add('invalid');
-			}
-
-			this.granulometria.set(this.tamices[tamiz], parseFloat(pasante));
-			// this.graphicData = Array.from(this.granulometria.entries());
-
-			this.graphicData = Array.from(this.granulometria.entries()).map(
-				(element) => {
-					return [Math.log10(element[0]), element[1]];
-				}
-			);
-
-			let granulometriaOrd = this.sortGranulometry();
-
-			if (granulometriaOrd.length > 1) {
-				granulometriaOrd.forEach((element, index) => {
-					if (index >= 1) {
-						let indexAnterior = index - 1 >= 0 ? index - 1 : 0;
-						let indexSiguiente = granulometriaOrd.length - 1;
-
-						if (index + 1 && index + 1 < granulometriaOrd.length) {
-							indexSiguiente = index + 1;
-						}
-
-						let diametroMayor = granulometriaOrd[indexAnterior][1]
-							? granulometriaOrd[indexAnterior][1]
-							: null;
-						let diametroMenor = granulometriaOrd[indexSiguiente][1]
-							? granulometriaOrd[indexSiguiente][1]
-							: null;
-
-						if (diametroMayor) {
-							if (element[1] > diametroMayor) {
-								inputMsgError.innerHTML = `<p>🤨 Revisa el valor ${pasante}%.</p>
-															<p>Los porcentajes deben ser decrecientes a medida que la abertura de los tamices disminuye.</p>`;
-								e.target.select();
-								e.target.focus();
-								e.target.classList.add('invalid');
-							}
-						}
-
-						if (diametroMenor) {
-							if (element[1] < diametroMenor) {
-								inputMsgError.innerHTML = `<p>🤨 Revisa el valor ${pasante}%.</p>
-															<p>Los porcentajes deben ser decrecientes a medida que la abertura de los tamices disminuye.</p>`;
-								e.target.select();
-								e.target.focus();
-								e.target.classList.add('invalid');
-							}
-						}
-					}
-				});
-			}
 		},
 
 		sortGranulometry() {
@@ -1162,7 +783,8 @@ export default {
 			let diametros = granulometriaOrd.map((e) => e[0]);
 
 			let porcentajeComparacion = pasantes.reduce((acc, cur) => {
-				console.log(cur, n); // return cur - n < acc - n ? cur : acc;
+				// console.log(cur, n);
+				// return cur - n < acc - n ? cur : acc;
 				return cur >= n && cur < acc ? cur : acc;
 			});
 
@@ -1189,14 +811,16 @@ export default {
 			} = parametros;
 
 			if (porcentaje1 < n) {
-				let indexExtrap = Object.values(this.tamices).indexOf(diametro1) - 1;
+				let indexExtrap =
+					Object.values(this.tamices).indexOf(diametro1) - 1;
 
 				porcentaje2 = 100;
 				diametro2 = Object.values(this.tamices)[indexExtrap];
 			}
 
 			let dn =
-				((diametro2 - diametro1) * (Math.log10(n) - Math.log10(porcentaje1))) /
+				((diametro2 - diametro1) *
+					(Math.log10(n) - Math.log10(porcentaje1))) /
 					(Math.log10(porcentaje2) - Math.log10(porcentaje1)) +
 				diametro1;
 			return dn;

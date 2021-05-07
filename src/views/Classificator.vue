@@ -13,16 +13,10 @@
 		</div>
 
 		<div v-if="isAashto">
-			<aashto
-				:soilParams="soilParams"
-				@update-soil-params="updateSoilParams"
-			></aashto>
+			<aashto></aashto>
 		</div>
 		<div v-else>
-			<sucs
-				:soilParams="soilParams"
-				@update-soil-params="updateSoilParams"
-			></sucs>
+			<sucs></sucs>
 		</div>
 	</div>
 </template>
@@ -38,30 +32,20 @@ export default {
 
 	data() {
 		return {
-			// systemName: null,
 			isAashto: null,
-			soilParams: {
-				tamiz10: null,
-				tamiz40: null,
-				tamiz200: null,
-				limitePlastico: null,
-				limiteLiquido: null,
-			},
 		};
 	},
 
 	methods: {
 		toggleSystem() {
+			let method = this.isAashto ? 'sucs' : 'aashto';
 			this.isAashto = !this.isAashto;
-		},
-
-		updateSoilParams(soilParams) {
-			this.soilParams = soilParams;
+			this.$router.replace(`/clasificar/${method}`);
 		},
 	},
 
 	created() {
-		this.isAashto = this.$route.params.system == 'aashto';
+		this.isAashto = this.$route.params.system == 'aashto' ? true : false;
 	},
 
 	computed: {
