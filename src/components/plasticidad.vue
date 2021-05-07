@@ -50,6 +50,7 @@
 							class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
 							placeholder="Límite líquido"
 						/>
+						<p class="error text-red-400"></p>
 					</label>
 				</li>
 				<li class="mb-4">
@@ -67,6 +68,7 @@
 							class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
 							placeholder="Límite Plástico"
 						/>
+						<p class="error text-red-400"></p>
 					</label>
 				</li>
 			</ul>
@@ -108,7 +110,24 @@ export default {
 	},
 
 	methods: {
-		sendData() {
+		sendData(e) {
+			const porcentaje = e.target.value;
+			const id = e.target.id;
+			const msgError = document.querySelector(`#${id} + p.error`);
+			e.target.classList.remove('invalid');
+			msgError.innerHTML = '';
+
+			if (porcentaje < 0) {
+				msgError.innerHTML = `🙄 Ingresa un valor positivo`;
+				e.target.focus();
+				e.target.classList.add('invalid');
+			}
+			if (porcentaje > 100) {
+				msgError.innerHTML = `😳 El valor ingresado debe ser menor que 100%`;
+				e.target.focus();
+				e.target.classList.add('invalid');
+			}
+
 			soilData.$emit('getData', this.data);
 		},
 	},
