@@ -12,7 +12,7 @@
 				</h2>
 
 				<granulometria :isAashto="isAashto"></granulometria>
-				<plasticidad></plasticidad>
+				<plasticidad :isAashto="isAashto"></plasticidad>
 
 				<button
 					class="button submit mt-5 hover:bg-white hover:text-black text-white font-bold py-2 px-5 uppercase"
@@ -108,6 +108,16 @@
 							:points="false"
 						></line-chart>
 					</div>
+					<p
+						v-if="indicePlasticidad"
+						class="text-red-400 text-sm text-center"
+					>
+						{{
+							lineaU
+								? 'Revisa los valores ingresados, los suelos de en la naturaleza no pueden representar puntos sobre la línea U.'
+								: ''
+						}}
+					</p>
 				</div>
 			</div>
 		</div>
@@ -190,12 +200,21 @@ export default {
 		plastico() {
 			return soilData.data.plastico;
 		},
+
 		limiteLiquido() {
 			return soilData.data.limiteLiquido;
 		},
 
 		limitePlastico() {
 			return soilData.data.limitePlastico;
+		},
+
+		indicePlasticidad() {
+			return soilData.indicePlasticidad;
+		},
+
+		lineaU() {
+			return soilData.lineaU;
 		},
 
 		granulometria() {
@@ -266,22 +285,6 @@ export default {
 			return null;
 		},
 
-		indicePlasticidad() {
-			if (this.plastico) {
-				let indicePlasticidad =
-					this.limiteLiquido && this.limitePlastico
-						? (this.limiteLiquido - this.limitePlastico).toFixed(1)
-						: null;
-
-				if (indicePlasticidad < 0 || indicePlasticidad == 0) {
-					indicePlasticidad = 'Material no plástico';
-				}
-
-				return indicePlasticidad;
-			}
-			return null;
-		},
-
 		IPTeorico() {
 			//Expresion de la Linea A --> horizontal IP = 4 hasta LL= 25.5, después IP = 0.73 ( LL - 20);
 			if (this.plastico) {
@@ -289,18 +292,6 @@ export default {
 					return 4;
 				} else {
 					return 0.73 * (this.limiteLiquido - 20);
-				}
-			}
-			return null;
-		},
-
-		lineaU() {
-			//Verifica que estás ingresando un suelo real, pues en la naturaleza no existen suelos con LL < 16 y sobre la linea U
-			if (this.plastico) {
-				if (this.limiteLiquido >= 16) {
-					return 0.9 * (this.limiteLiquido - 8);
-				} else {
-					return undefined;
 				}
 			}
 			return null;

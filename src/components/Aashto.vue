@@ -11,7 +11,7 @@
 					Ingresa los parámetros del suelo a clasificar:
 				</h2>
 				<granulometria :isAashto="isAashto"></granulometria>
-				<plasticidad></plasticidad>
+				<plasticidad :isAashto="isAashto"></plasticidad>
 
 				<button
 					class="button submit mt-5 hover:bg-white hover:text-black text-white font-bold py-2 px-5 uppercase"
@@ -42,13 +42,13 @@
 							>{{ tamiz200 }}%</span
 						>
 					</li>
-					<li v-if="limiteLiquido">
+					<li v-if="plastico">
 						Límite Líquido:
 						<span class="yellow-text" v-show="limiteLiquido"
 							>{{ limiteLiquido }}%</span
 						>
 					</li>
-					<li v-if="limitePlastico">
+					<li v-if="plastico">
 						Límite Plástico:
 						<span class="yellow-text" v-show="limitePlastico">
 							{{ limitePlastico }}%</span
@@ -234,21 +234,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$primary-color: #ffb400;
-
-input {
-	border-color: $primary-color;
-}
-
-.results {
-	border-color: $primary-color;
-}
-
-.yellow-text {
-	color: $primary-color;
-}
-
-.ip {
-	border-color: $primary-color;
-}
+@import '@/assets/scss/components';
 </style>

@@ -34,10 +34,26 @@ const soilData = new Vue({
 						? (this.data.limiteLiquido - this.data.limitePlastico).toFixed(1)
 						: null;
 
-				return indicePlasticidad;
+				return Number(indicePlasticidad);
 			}
+
 			return null;
-		}
+		},
+
+		lineaU() {
+			//Verifica que estás ingresando un suelo real, pues en la naturaleza no existen suelos con LL < 16 y sobre la linea U
+			let lineaU = null;
+			if (this.data.plastico) {
+
+				if (this.data.limiteLiquido >= 16) {
+					lineaU = 0.9 * (this.data.limiteLiquido - 8);
+				} else {
+					lineaU = undefined;
+				}
+			}
+
+			return this.indicePlasticidad > lineaU ? true : false;
+		},
 	},
 
 	created() {

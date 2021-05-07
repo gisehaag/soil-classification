@@ -41,7 +41,7 @@
 						<input
 							id="limite-liquido"
 							v-model="data.limiteLiquido"
-							@input="sendData"
+							@change="sendData"
 							pattern="[0-9,]+"
 							step="any"
 							min="0"
@@ -59,7 +59,7 @@
 						<input
 							id="limite-plastico"
 							v-model="data.limitePlastico"
-							@input="sendData"
+							@change="sendData"
 							pattern="[0-9,]+"
 							step="any"
 							min="0"
@@ -73,14 +73,23 @@
 				</li>
 			</ul>
 			<p
-				v-show="indicePlasticidad"
+				v-if="indicePlasticidad"
 				class="ip text-center font-bold border-4 px-4 py-2 bg-white"
 			>
-				{{
-					indicePlasticidad > 0
-						? `Índice de plasticidad ${indicePlasticidad}`
-						: 'Material no plástico'
-				}}
+				<span v-if="!isAashto">
+					{{
+						!lineaU
+							? `Índice de plasticidad ${indicePlasticidad}`
+							: `Verificar datos, material sobre la línea U.`
+					}}
+				</span>
+				<span v-else>
+					{{
+						!lineaU
+							? `Índice de plasticidad ${indicePlasticidad}`
+							: `Verificar los datos ingresados, valores de consistencia no son posibles en suelos presentes en la naturaleza.`
+					}}
+				</span>
 			</p>
 		</div>
 	</fieldset>
@@ -96,16 +105,27 @@ export default {
 		return {
 			data: null,
 			indicePlasticidad: null,
+			lineaU: null,
 		};
+	},
+
+	props: {
+		isAashto: {
+			type: Boolean,
+			default: false,
+		},
 	},
 
 	created() {
 		//proceso lo que me viene del state(soilData)
 		this.data = soilData.data;
 		this.indicePlasticidad = soilData.indicePlasticidad;
+		this.lineaU = soilData.lineaU;
 
+		//actualizo cada vez que recibo el evento
 		soilData.$on('getData', () => {
 			this.indicePlasticidad = soilData.indicePlasticidad;
+			this.lineaU = soilData.lineaU;
 		});
 	},
 
