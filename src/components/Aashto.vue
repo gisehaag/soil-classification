@@ -134,31 +134,28 @@ export default {
 				if (this.tamiz40 <= 50) {
 					this.groupName = 'fragmentos petreos, grava y arena';
 
-					if (this.tamiz200 <= 25 && this.indicePlastico <= 6) {
+					if (this.tamiz200 <= 25 && this.indicePlasticidad <= 6) {
 						this.group = 'A-1-b';
 					}
 
 					if (
 						this.tamiz10 <= 50 &&
 						this.tamiz200 <= 15 &&
-						this.indicePlastico <= 6
+						this.indicePlasticidad <= 6
 					) {
 						this.group = 'A-1-a';
 					}
 				} else {
-					if (
-						this.tamiz200 <= 10 &&
-						typeof this.indicePlastico === 'string'
-					) {
+					if (this.tamiz200 <= 10 && this.indicePlasticidad === null) {
 						this.group = 'A-3';
 						this.groupName = 'arena fina';
 					}
 				}
 			}
 
-			if (this.indicePlastico) {
+			if (this.indicePlasticidad) {
 				if (this.limiteLiquido <= 40) {
-					if (this.indicePlastico <= 10) {
+					if (this.indicePlasticidad <= 10) {
 						this.group += '4';
 						this.groupName = 'suelos limosos';
 					} else {
@@ -166,14 +163,14 @@ export default {
 						this.groupName = 'suelos arcillosos';
 					}
 				} else {
-					if (this.indicePlastico <= 10) {
+					if (this.indicePlasticidad <= 10) {
 						this.group += '5';
 						this.groupName = 'suelos limosos';
 					} else {
 						this.group += '7';
 						if (this.esGranular === 'limo-arcilloso') {
 							this.groupName = 'suelos arcillosos';
-							if (this.indicePlastico <= this.limiteLiquido - 30) {
+							if (this.indicePlasticidad <= this.limiteLiquido - 30) {
 								this.group += '-5';
 							} else {
 								this.group += '-6';
@@ -214,17 +211,8 @@ export default {
 			return soilData.data.limitePlastico;
 		},
 
-		indicePlastico() {
-			let indicePlastico =
-				this.limiteLiquido && this.limitePlastico
-					? (this.limiteLiquido - this.limitePlastico).toFixed(1)
-					: null;
-
-			if (indicePlastico < 0 || indicePlastico == 0) {
-				indicePlastico = 'Material no plástico';
-			}
-
-			return indicePlastico;
+		indicePlasticidad() {
+			return soilData.indicePlasticidad;
 		},
 
 		esGranular() {
