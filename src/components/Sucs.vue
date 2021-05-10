@@ -23,7 +23,7 @@
 				</button>
 			</form>
 
-			<div class="data" id="data">
+			<div class="data" id="datos">
 				<h2 class="font-bold text-lg my-4">Características del suelo:</h2>
 
 				<div class="data-list">
@@ -147,15 +147,7 @@
 					</h3>
 				</div>
 			</div>
-			<div class="text-right mr-8 pb-8 text-xs">
-				<button
-					class="print mt-5 hover:text-white text-grey-500 font-bold py-2 px-5 uppercase"
-					v-if="groupName"
-					@click="print"
-				>
-					Imprimir
-				</button>
-			</div>
+		</div>
 		<buttons v-if="groupName" :isAashto="isAashto"></buttons>
 	</div>
 </template>
@@ -339,10 +331,6 @@ export default {
 	},
 
 	methods: {
-		print() {
-			window.print();
-		},
-
 		getGroup() {
 			this.clasificando = true;
 			let resultBox = document.querySelector('.results');
@@ -672,8 +660,6 @@ export default {
 					this.fineGroup = 'CH';
 				}
 			}
-
-			console.log(this.indicePlasticidad, this.lineaA, this.fineGroup);
 		},
 
 		clasificarGruesos() {
@@ -837,6 +823,7 @@ export default {
 					(Math.log10(n) - Math.log10(porcentaje1))) /
 					(Math.log10(porcentaje2) - Math.log10(porcentaje1)) +
 				diametro1;
+
 			return dn;
 		},
 	},
