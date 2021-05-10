@@ -15,6 +15,7 @@
 				<plasticidad :isAashto="isAashto"></plasticidad>
 
 				<button
+					v-if="!clasificando"
 					class="button submit mt-5 hover:bg-white hover:text-black text-white font-bold py-2 px-5 uppercase"
 					type="submit"
 				>
@@ -183,6 +184,18 @@ export default {
 			errorMessage: null,
 			coefUniformidad: null,
 			coefCurvatura: null,
+			tamices: {
+				tamiz112: 37.5,
+				tamiz1: 25,
+				tamiz34: 19,
+				tamiz12: 12.5,
+				tamiz38: 9.5,
+				tamiz4: 4.75,
+				tamiz10: 2,
+				tamiz40: 0.425,
+				tamiz100: 0.15,
+				tamiz200: 0.075,
+			},
 		};
 	},
 
@@ -364,6 +377,14 @@ export default {
 
 			this.getCoeficents();
 
+			if (this.finos < 5) {
+				this.clasificarGruesos();
+				this.group = this.coarseGroup;
+				this.getGroupName();
+
+				return;
+			}
+
 			this.clasificarFinos();
 
 			if (this.finos < 50) {
@@ -373,7 +394,7 @@ export default {
 				this.group = this.fineGroup;
 			}
 
-			if (this.plastico && !this.lineaU) {
+			if (this.plastico && this.lineaU) {
 				this.errorMessage =
 					'Revisa los valores ingresados, los suelos de en la naturaleza no pueden representar puntos sobre la línea U.';
 			}
