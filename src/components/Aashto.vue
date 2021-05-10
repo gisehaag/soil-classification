@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div class="box flex justify-arround">
+		<div class="box flex justify-around">
 			<form
 				novalidate
 				class="inputs text-center"
@@ -64,13 +64,13 @@
 				class="results bg-white border-4 flex flex-col justify-center items-center py-6 px-3"
 			>
 				<div class="suelo font-extrabold text-xl">
-					<h1 v-if="groupName">
+					<h1 v-if="groupName" class="mb-4">
 						Grupo de clasificación:
 						<span class="yellow-text">{{ group }}</span>
 					</h1>
 					<h1 v-else>Necesito más datos para clasificar 🧐...</h1>
 				</div>
-				<div v-if="groupName" class="text-lg">
+				<div v-if="groupName" class="text-lg text-center">
 					<h3>
 						El material que está siendo clasificado es
 						<span class="yellow-text">{{ esGranular }}</span
