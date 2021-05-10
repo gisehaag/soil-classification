@@ -81,6 +81,7 @@
 				</div>
 			</div>
 		</div>
+		<buttons v-if="groupName" :isAashto="isAashto"></buttons>
 	</div>
 </template>
 
@@ -89,11 +90,12 @@ import granulometria from './granulometria.vue';
 import plasticidad from '@/components/plasticidad';
 import soilData from '@/soilData';
 import curvaGranulometrica from '@/components/curvaGranulometrica';
+import buttons from '@/components/buttons';
 
 export default {
 	name: 'Aashto',
 
-	components: { granulometria, plasticidad, curvaGranulometrica },
+	components: { granulometria, plasticidad, curvaGranulometrica, buttons },
 
 	data() {
 		return {

@@ -155,7 +155,7 @@
 					Imprimir
 				</button>
 			</div>
-		</div>
+		<buttons v-if="groupName" :isAashto="isAashto"></buttons>
 	</div>
 </template>
 
@@ -163,12 +163,14 @@
 import granulometria from '@/components/granulometria';
 import plasticidad from '@/components/plasticidad';
 import curvaGranulometrica from '@/components/curvaGranulometrica';
+import buttons from '@/components/buttons';
+
 import soilData from '@/soilData';
 
 export default {
 	name: 'Sucs',
 
-	components: { granulometria, plasticidad, curvaGranulometrica },
+	components: { granulometria, plasticidad, curvaGranulometrica, buttons },
 
 	data() {
 		return {
@@ -822,16 +824,16 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/scss/components';
-$primary-color: #ffb400;
+// $primary-color: #ffb400;
 
-.print {
-	text-align: center;
-	border: 2px solid #555;
-	background-color: #fff;
-}
+// .print {
+// 	text-align: center;
+// 	border: 2px solid #555;
+// 	background-color: #fff;
+// }
 
-.print:hover {
-	background-color: $primary-color;
-	border-color: transparent;
-}
+// .print:hover {
+// 	background-color: $primary-color;
+// 	border-color: transparent;
+// }
 </style>
