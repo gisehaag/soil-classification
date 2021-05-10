@@ -199,6 +199,10 @@ export default {
 			return soilData.data.tamiz200;
 		},
 
+		granulometria() {
+			return soilData.data.granulometria;
+		},
+
 		plastico() {
 			return soilData.data.plastico;
 		},
