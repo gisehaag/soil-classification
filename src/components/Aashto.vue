@@ -5,7 +5,7 @@
 				novalidate
 				class="inputs text-center"
 				action="/"
-				@submit.prevent="getGroup"
+				@submit.prevent="getResult"
 			>
 				<h2 class="font-bold text-lg">
 					Ingresa los parámetros del suelo a clasificar:
@@ -14,6 +14,7 @@
 				<plasticidad :isAashto="isAashto"></plasticidad>
 
 				<button
+					v-if="!clasificando"
 					class="button submit mt-5 hover:bg-white hover:text-black text-white font-bold py-2 px-5 uppercase"
 					type="submit"
 				>
@@ -21,7 +22,7 @@
 				</button>
 			</form>
 
-			<div class="data" id="data">
+			<div class="data" id="datos">
 				<h2 class="font-bold text-lg my-4">Características del suelo:</h2>
 				<ul class="text-left">
 					<li>
@@ -61,6 +62,7 @@
 		</div>
 		<div class="result-container">
 			<div
+				v-show="clasificando"
 				class="results bg-white border-4 flex flex-col justify-center items-center py-6 px-3"
 			>
 				<div class="suelo font-extrabold text-xl">
@@ -81,6 +83,7 @@
 				</div>
 			</div>
 		</div>
+
 		<buttons v-if="groupName" :isAashto="isAashto"></buttons>
 	</div>
 </template>
@@ -99,8 +102,8 @@ export default {
 
 	data() {
 		return {
-			granulometria: null,
-			graphicData: [],
+			clasificando: false,
+			// graphicData: [],
 			group: null,
 			groupName: null,
 			errorMessage: null,
@@ -109,21 +112,13 @@ export default {
 	},
 
 	methods: {
-		getGroup() {
-			console.log('hola');
-		},
-
 		getResult() {
+			this.clasificando = true;
+			let resultBox = document.querySelector('.results');
+			resultBox.scrollIntoView({ block: 'center', behavior: 'smooth' });
+
 			this.group = null;
 			this.groupName = null;
-
-			// this.$emit('update-soil-params', {
-			// 	tamiz10: this.tamiz10,
-			// 	tamiz40: this.tamiz40,
-			// 	tamiz200: this.tamiz200,
-			// 	limitePlastico: this.limitePlastico,
-			// 	limiteLiquido: this.limiteLiquido,
-			// });
 
 			this.group = 'A-';
 
