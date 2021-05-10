@@ -71,7 +71,10 @@
 
 				<curva-granulometrica></curva-granulometrica>
 
-				<div v-if="plastico" class="graphic-box plasticidad mt-8 bg-white">
+				<div
+					v-if="plastico && indicePlasticidad > 0"
+					class="graphic-box plasticidad mt-8 bg-white"
+				>
 					<h2 class="underline mb-4">Carta de plasticidad</h2>
 					<div class="graphic relative">
 						<line-chart

@@ -72,25 +72,28 @@
 					</label>
 				</li>
 			</ul>
-			<p
-				v-if="indicePlasticidad"
-				class="ip text-center font-bold border-4 px-4 py-2 bg-white"
-			>
-				<span v-if="!isAashto">
-					{{
-						!lineaU
-							? `Índice de plasticidad ${indicePlasticidad}`
-							: `Verificar datos, material sobre la línea U.`
-					}}
-				</span>
-				<span v-else>
-					{{
-						!lineaU
-							? `Índice de plasticidad ${indicePlasticidad}`
-							: `Verificar los datos ingresados, valores de consistencia no son posibles en suelos presentes en la naturaleza.`
-					}}
-				</span>
+
+			<p v-if="indicePlasticidad < 0" class="error text-left text-red-400">
+				🧐 Revisa los valores de consistencia ingresados.
 			</p>
+			<div v-else>
+				<p v-if="indicePlasticidad" class="text-left font-bold">
+					<span v-if="!isAashto">
+						{{
+							!lineaU
+								? `Índice de plasticidad ${indicePlasticidad}`
+								: `Verificar datos, material sobre la línea U.`
+						}}
+					</span>
+					<span v-else>
+						{{
+							!lineaU
+								? `Índice de plasticidad ${indicePlasticidad}`
+								: `Verificar los datos ingresados, valores de consistencia no son posibles en suelos presentes en la naturaleza.`
+						}}
+					</span>
+				</p>
+			</div>
 		</div>
 	</fieldset>
 </template>
