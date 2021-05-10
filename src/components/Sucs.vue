@@ -451,14 +451,14 @@ export default {
 					this.groupName =
 						this.gravas < 15
 							? 'Arena bien graduada'
-							: 'Arena bien graduada con arena';
+							: 'Arena bien graduada con grava';
 					break;
 
 				case 'SP':
 					this.groupName =
 						this.gravas < 15
 							? 'Arena mal graduada'
-							: 'Arena mal graduada con arena';
+							: 'Arena mal graduada con grava';
 					break;
 
 				case 'SW-SM':
