@@ -20,7 +20,7 @@
 				</p>
 
 				<button class="uppercase font-bold text-white">
-					boton que me gusta
+					<router-link to="/about">Cómo funciona esta app?</router-link>
 				</button>
 			</div>
 		</div>
