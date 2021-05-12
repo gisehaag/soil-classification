@@ -82,6 +82,10 @@ button {
 		text-align: center;
 	}
 
+	.title h1 {
+		font-size: 1.5rem !important;
+	}
+
 	button {
 		margin: 0;
 		margin-top: 15px;

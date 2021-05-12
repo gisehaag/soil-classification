@@ -5,103 +5,99 @@ $primary-color: #ffb400;
 // }
 
 .button {
-  background-color: $primary-color;
-  border: 4px solid transparent;
-  padding: 10px 25px;
+	background-color: $primary-color;
+	border: 4px solid transparent;
+	padding: 10px 25px;
 
-  &:hover {
-    border-color: $primary-color;
-  }
+	&:hover {
+		border-color: $primary-color;
+	}
 }
 
 label {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-bottom: 0.5rem;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin-bottom: 0.5rem;
 }
 
 input {
-  width: 30%;
+	width: 30%;
 }
 
 .invalid {
-  border: 1px solid red !important;
+	border: 1px solid red !important;
 }
 
 input::placeholder {
-  font-size: 0.7em;
+	font-size: 0.7em;
 }
 
 .error {
-  width: 100%;
+	width: 100%;
 }
 
-// .results-container {
-//   height: 100vh;
-// }
-
 .results {
-  border-color: $primary-color;
-  margin: 0 auto;
-  margin-top: 2rem;
-  // margin-top: 40vh;
-  width: 65vw;
+	border-color: $primary-color;
+	margin: 0 auto;
+	margin-top: 2rem;
+	// margin-top: 40vh;
+	width: 65vw;
+}
+
+.suelo h1 {
+	text-align: center;
 }
 
 .emoji {
-  background-color: #fff;
-  border: 2px solid #fff;
-  border-radius: 50%;
+	background-color: #fff;
+	border: 2px solid #fff;
+	border-radius: 50%;
 }
 
 .yellow-text {
-  color: $primary-color;
+	color: $primary-color;
 }
 
 .data {
-  margin-left: 2rem;
-  width: 40%;
-}
-
-.ip {
-  border-color: $primary-color;
+	margin-left: 2rem;
+	width: 40%;
 }
 
 .graphic-box {
-  border: 0.5px solid #666;
-  padding: 15px;
+	border: 0.5px solid #666;
+	padding: 15px;
 }
 
 @media screen and (min-width: 1200px) {
-  .plasticidad {
-    width: 70%;
-  }
+	.plasticidad {
+		width: 70%;
+	}
 }
 
 @media screen and (max-width: 500px) {
-  .box,
-  .consistencia {
-    flex-direction: column;
-  }
+	.box,
+	.consistencia {
+		flex-direction: column;
+	}
 
-  form,
-  .results,
-  .data {
-    width: 90vw;
-    margin: 0 auto;
-  }
+	form,
+	.results,
+	.data {
+		width: 90vw;
+		margin: 0 auto;
+	}
 
-  .submit {
-    margin-bottom: 20px;
-  }
+	.submit {
+		margin-bottom: 20px;
+	}
 
-  .graphic {
-    width: 95%;
-  }
+	.graphic {
+		width: 95%;
+	}
 
-  .results,
-  .data-list {
-    margin-top: 2rem;
-  }
+	.results,
+	.data-list {
+		margin-top: 2rem;
+	}
 }

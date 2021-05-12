@@ -835,16 +835,4 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/scss/components';
-// $primary-color: #ffb400;
-
-// .print {
-// 	text-align: center;
-// 	border: 2px solid #555;
-// 	background-color: #fff;
-// }
-
-// .print:hover {
-// 	background-color: $primary-color;
-// 	border-color: transparent;
-// }
 </style>
