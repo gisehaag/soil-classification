@@ -1,8 +1,14 @@
 <template>
 	<header
-		class="flex items-center border-1 border-gray-200 pl-6 max-w-7xl text-2xl bg-white bg-opacity-100 shadow font-extrabold"
+		class="flex items-center border-1 border-gray-200 pl-6 text-xl bg-white bg-opacity-100 shadow font-extrabold"
+		id="header"
 	>
-		<h1 class="">header | Soil classification app</h1>
+		<div>
+			<ul>
+				<li><router-link to="/">Inicio</router-link></li>
+				<li><router-link to="/about">Cómo funciona?</router-link></li>
+			</ul>
+		</div>
 	</header>
 </template>
 
@@ -12,5 +18,14 @@
 header {
 	font-family: 'Poppins', sans-serif;
 	height: var(--header-height);
+}
+
+ul {
+	display: flex;
+	justify-content: space-between;
+}
+
+li {
+	margin-right: 35px;
 }
 </style>
