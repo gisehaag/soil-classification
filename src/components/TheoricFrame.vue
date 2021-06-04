@@ -20,7 +20,7 @@
 				</p>
 
 				<button class="uppercase font-bold text-white">
-					<router-link to="/about">Cómo funciona esta app?</router-link>
+					<router-link to="/about">Marco Teórico</router-link>
 				</button>
 			</div>
 		</div>
