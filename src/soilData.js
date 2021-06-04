@@ -9,6 +9,9 @@ const soilData = new Vue({
 			data: {
 				granulometria: new Map(),
 				graphicData: [],
+				tamiz3: null,
+				tamiz212: null,
+				tamiz2: null,
 				tamiz112: null,
 				tamiz1: null,
 				tamiz34: null,
@@ -32,8 +35,8 @@ const soilData = new Vue({
 				let indicePlasticidad =
 					this.data.limiteLiquido && this.data.limitePlastico
 						? (
-								this.data.limiteLiquido - this.data.limitePlastico
-						  ).toFixed(1)
+							this.data.limiteLiquido - this.data.limitePlastico
+						).toFixed(1)
 						: null;
 
 				return Number(indicePlasticidad);

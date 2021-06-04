@@ -2,44 +2,137 @@
 	<fieldset class="granulometria">
 		<h3 class="underline mb-4 text-left">Granulometría:</h3>
 		<ul>
-			<li class="">
-				<label class="item-granulometria" for="tamiz1-1/2">
-					<span>% que pasa tamiz 1 1/2" </span>
+			<div>
+				<label
+					for="serie-gruesa"
+					class="text-left mb-4 justify-start items-center"
+				>
+					<span> Mostrar serie gruesa </span>
 					<input
-						id="tamiz112"
-						@change="addDataToGranulometry"
-						v-model="data.tamiz112"
-						name="tamiz1-1/2"
-						pattern="[0-9,]+"
-						step="any"
-						min="0"
-						max="100"
-						type="number"
-						class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
-						placeholder="entre 0 y 100%"
+						class="w-1/12"
+						v-model="serieGruesa"
+						type="checkbox"
+						name="serie-gruesa"
+						id="serie-gruesa"
+						:value="true"
 					/>
-					<p class="error text-red-400"></p>
 				</label>
-			</li>
-			<li class="">
-				<label class="item-granulometria" for="tamiz1">
-					<span>% que pasa tamiz 1"</span>
-					<input
-						id="tamiz1"
-						@change="addDataToGranulometry"
-						v-model="data.tamiz1"
-						name="tamiz1"
-						pattern="[0-9,]+"
-						step="any"
-						min="0"
-						max="100"
-						type="number"
-						class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
-						placeholder="entre 0 y 100%"
-					/>
-					<p class="error text-red-400"></p>
-				</label>
-			</li>
+			</div>
+
+			<div v-if="serieGruesa" class="serie-gruesa">
+				<li class="">
+					<label class="item-granulometria" for="tamiz3">
+						<span>% que pasa tamiz 3" </span>
+						<input
+							id="tamiz3"
+							@change="addDataToGranulometry"
+							v-model="data.tamiz3"
+							name="tamiz3"
+							pattern="[0-9,]+"
+							step="any"
+							min="0"
+							max="100"
+							type="number"
+							class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
+							placeholder="entre 0 y 100%"
+						/>
+						<p class="error text-red-400"></p>
+					</label>
+				</li>
+				<li class="">
+					<label class="item-granulometria" for="tamiz2-1/2">
+						<span>% que pasa tamiz 2 1/2" </span>
+						<input
+							id="tamiz212"
+							@change="addDataToGranulometry"
+							v-model="data.tamiz212"
+							name="tamiz2-1/2"
+							pattern="[0-9,]+"
+							step="any"
+							min="0"
+							max="100"
+							type="number"
+							class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
+							placeholder="entre 0 y 100%"
+						/>
+						<p class="error text-red-400"></p>
+					</label>
+				</li>
+				<li class="">
+					<label class="item-granulometria" for="tamiz2">
+						<span>% que pasa tamiz 2" </span>
+						<input
+							id="tamiz2"
+							@change="addDataToGranulometry"
+							v-model="data.tamiz2"
+							name="tamiz2"
+							pattern="[0-9,]+"
+							step="any"
+							min="0"
+							max="100"
+							type="number"
+							class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
+							placeholder="entre 0 y 100%"
+						/>
+						<p class="error text-red-400"></p>
+					</label>
+				</li>
+				<li class="">
+					<label class="item-granulometria" for="tamiz1-1/2">
+						<span>% que pasa tamiz 1 1/2" </span>
+						<input
+							id="tamiz112"
+							@change="addDataToGranulometry"
+							v-model="data.tamiz112"
+							name="tamiz1-1/2"
+							pattern="[0-9,]+"
+							step="any"
+							min="0"
+							max="100"
+							type="number"
+							class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
+							placeholder="entre 0 y 100%"
+						/>
+						<p class="error text-red-400"></p>
+					</label>
+				</li>
+				<li class="">
+					<label class="item-granulometria" for="tamiz1">
+						<span>% que pasa tamiz 1"</span>
+						<input
+							id="tamiz1"
+							@change="addDataToGranulometry"
+							v-model="data.tamiz1"
+							name="tamiz1"
+							pattern="[0-9,]+"
+							step="any"
+							min="0"
+							max="100"
+							type="number"
+							class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
+							placeholder="entre 0 y 100%"
+						/>
+						<p class="error text-red-400"></p>
+					</label>
+				</li>
+
+				<!-- <div>
+					<label
+						for="serie-gruesa"
+						class="text-left mb-4 justify-start items-center"
+					>
+						<span>Ocultar serie gruesa</span>
+						<input
+							class="w-1/12"
+							v-model="serieGruesa"
+							type="checkbox"
+							name="serie-gruesa"
+							id="serie-gruesa"
+							:value="false"
+						/>
+					</label> -->
+				<!-- </div> -->
+			</div>
 			<li class="">
 				<label class="item-granulometria" for="tamiz3/4">
 					<span>% que pasa tamiz 3/4"</span>
@@ -224,7 +317,11 @@ export default {
 
 	data() {
 		return {
+			serieGruesa: false,
 			tamices: {
+				tamiz3: 75,
+				tamiz212: 63,
+				tamiz2: 50,
 				tamiz112: 37.5,
 				tamiz1: 25,
 				tamiz34: 19,
