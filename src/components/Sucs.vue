@@ -278,7 +278,7 @@ export default {
 
 				if (this.indicePlasticidad) {
 					plasticityChart.push({
-						name: 'Suelo a clasificar',
+						name: 'Suelo analizado',
 						data: [
 							[
 								parseFloat(this.limiteLiquido),
