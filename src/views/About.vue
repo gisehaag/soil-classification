@@ -46,8 +46,8 @@
 				Este método se utiliza para predecir las características del suelo,
 				a partir de su textura y el tamaño de sus partículas.
 				La norma ASTM D2487 – 06 describe este proceso de clasificación.
+				<!-- https://lauwtjunnji.weebly.com/uploads/1/0/1/7/10171621/astm_d-2487_classification_of_soils_for_engineering_purposes_unified_soil_classification_system.pdf -->
 
-				<!-- Descrito por la Norma ASTM D2487, como  -->
 			</p>
 			<p class="mb-4">
 				En este caso, no se han contemplado suelos orgánicos, por lo tanto

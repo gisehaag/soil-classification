@@ -1,6 +1,14 @@
 <template>
 	<header
-		class="flex items-center border-1 border-gray-200 pl-6 text-xl bg-white bg-opacity-100 font-extrabold"
+		class="
+			flex
+			items-center
+			border-1 border-gray-200
+			pl-6
+			text-xl
+			bg-white bg-opacity-100
+			font-extrabold
+		"
 		id="header"
 	>
 		<div>
@@ -13,7 +21,7 @@
 					<router-link to="/clasificar/aashto">AASHTO</router-link>
 				</li>
 				<li>
-					<router-link to="/about">Marco Teórico</router-link>
+					<router-link to="/about">Cómo funciona?</router-link>
 				</li>
 			</ul>
 		</div>
