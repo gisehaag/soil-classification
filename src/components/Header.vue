@@ -21,7 +21,7 @@
 					<router-link to="/clasificar/aashto">AASHTO</router-link>
 				</li>
 				<li>
-					<router-link to="/about">Cómo funciona?</router-link>
+					<router-link to="/about">¿Cómo funciona?</router-link>
 				</li>
 			</ul>
 		</div>
