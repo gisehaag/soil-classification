@@ -15,7 +15,18 @@
 
 				<button
 					v-if="!clasificando"
-					class="button submit mt-5 hover:bg-white hover:text-black text-white font-bold py-2 px-5 uppercase"
+					class="
+						button
+						submit
+						mt-5
+						hover:bg-white
+						hover:text-black
+						text-white
+						font-bold
+						py-2
+						px-5
+						uppercase
+					"
 					type="submit"
 				>
 					Clasificar <span class="emoji">🤓</span>
@@ -60,17 +71,28 @@
 				<curva-granulometrica></curva-granulometrica>
 			</div>
 		</div>
-		<div class="result-container">
+		<div v-if="errorMessage || groupName" class="result-container">
 			<div
 				v-show="clasificando"
-				class="results bg-white border-4 flex flex-col justify-center items-center py-6 px-3"
+				class="
+					results
+					bg-white
+					border-4
+					flex flex-col
+					justify-center
+					items-center
+					py-6
+					px-3
+				"
 			>
 				<div class="suelo font-extrabold text-xl">
+					<p id="error-msg" v-if="errorMessage">{{ errorMessage }}</p>
+
 					<h1 v-if="groupName" class="mb-4">
 						Grupo de clasificación:
 						<span class="yellow-text">{{ group }}</span>
 					</h1>
-					<h1 v-else>Necesito más datos para clasificar 🧐...</h1>
+					<!-- <h1 v-else>Necesito más datos para clasificar 🧐...</h1> -->
 				</div>
 				<div v-if="groupName" class="text-lg text-center">
 					<h3>
@@ -78,7 +100,6 @@
 						<span class="yellow-text">{{ esGranular }}</span
 						>.
 					</h3>
-					<p v-if="errorMessage">{{ errorMessage }}</p>
 					<p>Este tipo de suelos consta usualmente de {{ groupName }}</p>
 				</div>
 			</div>
@@ -114,17 +135,55 @@ export default {
 	methods: {
 		getResult() {
 			this.clasificando = true;
-			let resultBox = document.querySelector('.results');
-			resultBox.scrollIntoView({ block: 'center', behavior: 'smooth' });
-
+			this.errorMessage = '';
 			this.group = null;
 			this.groupName = null;
+
+			// if (this.granulometria.size < 3) {
+			// 	this.errorMessage =
+			// 		'🧐 Ingresa al menos 3 valores para la granulometría.';
+			// 	return;
+			// }
+
+			if (!this.tamiz10) {
+				this.errorMessage = '🧐 Ingresa el % pasante tamiz 10.';
+				this.clasificando = false;
+
+				return;
+			}
+
+			if (!this.tamiz40) {
+				this.errorMessage = '🧐 Ingresa el % pasante tamiz 40.';
+				this.clasificando = false;
+
+				return;
+			}
+
+			if (!this.tamiz200) {
+				this.errorMessage = '🧐 Ingresa el % pasante tamiz 200.';
+				this.clasificando = false;
+
+				return;
+			}
+
+			if (this.plastico) {
+				if (!this.limiteLiquido || !this.limitePlastico) {
+					this.errorMessage =
+						'🧐 Ingresa valores de consistencia del material.';
+					this.clasificando = false;
+
+					return;
+				}
+			}
+
+			let resultBox = document.querySelector('.results');
+			resultBox.scrollIntoView({ block: 'center', behavior: 'smooth' });
 
 			this.group = 'A-';
 
 			if (this.esGranular == 'granular' && this.granulometria) {
 				this.group += '2-';
-				this.groupName = 'limos o gravas arcillosas y arena';
+				this.groupName = 'gravas con limo o arcilla y arena';
 
 				if (this.tamiz40 <= 50) {
 					this.groupName = 'fragmentos petreos, grava y arena';
@@ -152,15 +211,21 @@ export default {
 				if (this.limiteLiquido <= 40) {
 					if (this.indicePlasticidad <= 10) {
 						this.group += '4';
-						this.groupName = 'suelos limosos';
+						if (this.esGranular === 'limo-arcilloso') {
+							this.groupName = 'suelos limosos';
+						}
 					} else {
 						this.group += '6';
-						this.groupName = 'suelos arcillosos';
+						if (this.esGranular === 'limo-arcilloso') {
+							this.groupName = 'suelos arcillosos';
+						}
 					}
 				} else {
 					if (this.indicePlasticidad <= 10) {
 						this.group += '5';
-						this.groupName = 'suelos limosos';
+						if (this.esGranular === 'limo-arcilloso') {
+							this.groupName = 'suelos limosos';
+						}
 					} else {
 						this.group += '7';
 						if (this.esGranular === 'limo-arcilloso') {
