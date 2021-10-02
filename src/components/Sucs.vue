@@ -356,21 +356,28 @@ export default {
 	},
 
 	methods: {
-		getGroup() {
-			this.clasificando = true;
-			this.errorMessage = '';
-			this.group = null;
+		scrollToResult() {
+			let resultBox = document.querySelector('.result-container');
+			resultBox.scrollIntoView({
+				block: 'center',
+				behavior: 'smooth',
+			});
+		},
 
+		checkInputs() {
 			if (this.granulometria.size < 3) {
 				this.errorMessage =
 					'🧐 Ingresa al menos 3 valores para la granulometría.';
 				this.clasificando = false;
+				this.scrollToResult();
+
 				return;
 			}
 
 			if (!this.tamiz4) {
 				this.errorMessage = '🧐 Ingresa el % pasante tamiz 4.';
 				this.clasificando = false;
+				this.scrollToResult();
 
 				return;
 			}
@@ -378,6 +385,7 @@ export default {
 			if (!this.tamiz200) {
 				this.errorMessage = '🧐 Ingresa el % pasante tamiz 200.';
 				this.clasificando = false;
+				this.scrollToResult();
 
 				return;
 			}
@@ -387,39 +395,47 @@ export default {
 					this.errorMessage =
 						'🧐 Ingresa valores de consistencia del material.';
 					this.clasificando = false;
+					this.scrollToResult();
 
 					return;
 				}
 			}
+		},
 
-			let resultBox = document.querySelector('.results');
-			resultBox.scrollIntoView({ block: 'center', behavior: 'smooth' });
+		getGroup() {
+			this.clasificando = true;
+			this.errorMessage = '';
+			this.group = null;
 
-			this.getCoeficents();
+			this.checkInputs();
 
-			if (this.finos < 5) {
-				this.clasificarGruesos();
-				this.group = this.coarseGroup;
+			if (this.errorMessage === '') {
+				this.getCoeficents();
+
+				if (this.finos < 5) {
+					this.clasificarGruesos();
+					this.group = this.coarseGroup;
+					this.getGroupName();
+
+					return;
+				}
+
+				this.clasificarFinos();
+
+				if (this.finos < 50) {
+					this.clasificarGruesos();
+					this.group = this.coarseGroup;
+				} else {
+					this.group = this.fineGroup;
+				}
+
+				if (this.plastico && this.lineaU) {
+					this.errorMessage =
+						'Revisa los valores ingresados, los suelos de en la naturaleza no pueden representar puntos sobre la línea U.';
+				}
+
 				this.getGroupName();
-
-				return;
 			}
-
-			this.clasificarFinos();
-
-			if (this.finos < 50) {
-				this.clasificarGruesos();
-				this.group = this.coarseGroup;
-			} else {
-				this.group = this.fineGroup;
-			}
-
-			if (this.plastico && this.lineaU) {
-				this.errorMessage =
-					'Revisa los valores ingresados, los suelos de en la naturaleza no pueden representar puntos sobre la línea U.';
-			}
-
-			this.getGroupName();
 		},
 
 		getGroupName() {

@@ -78,7 +78,6 @@
 		</div>
 		<div class="result-container" v-show="errorMessage || groupName">
 			<div
-				v-show="clasificando"
 				class="
 					results
 					bg-white
@@ -138,35 +137,39 @@ export default {
 	},
 
 	methods: {
-		getResult() {
-			this.clasificando = true;
-			this.errorMessage = '';
-			this.group = null;
-			this.groupName = null;
+		scrollToResult() {
+			// console.log('scroll?');
+			let resultBox = document.querySelector('.result-container');
+			// console.log(resultBox);
+			resultBox.scrollIntoView({
+				block: 'center',
+				behavior: 'smooth',
+			});
+			// console.log('llega aca?');
+			// document.querySelector('.results').scrollIntoView();
+		},
 
-			// if (this.granulometria.size < 3) {
-			// 	this.errorMessage =
-			// 		'🧐 Ingresa al menos 3 valores para la granulometría.';
-			// 	return;
-			// }
-
+		checkInputs() {
 			if (!this.tamiz10) {
-				this.errorMessage = '🧐 Ingresa el % pasante tamiz 10.';
+				this.errorMessage = '🧐 Ingresa el % pasante tamiz 10';
 				this.clasificando = false;
+				this.scrollToResult();
 
 				return;
 			}
 
 			if (!this.tamiz40) {
-				this.errorMessage = '🧐 Ingresa el % pasante tamiz 40.';
+				this.errorMessage = '🧐 Ingresa el % pasante tamiz 40';
 				this.clasificando = false;
+				this.scrollToResult();
 
 				return;
 			}
 
 			if (!this.tamiz200) {
-				this.errorMessage = '🧐 Ingresa el % pasante tamiz 200.';
+				this.errorMessage = '🧐 Ingresa el % pasante tamiz 200';
 				this.clasificando = false;
+				this.scrollToResult();
 
 				return;
 			}
@@ -174,76 +177,87 @@ export default {
 			if (this.plastico) {
 				if (!this.limiteLiquido || !this.limitePlastico) {
 					this.errorMessage =
-						'🧐 Ingresa valores de consistencia del material.';
+						'🧐 Ingresa valores de consistencia del material';
 					this.clasificando = false;
+					this.scrollToResult();
 
 					return;
 				}
 			}
+		},
 
-			let resultBox = document.querySelector('.results');
-			resultBox.scrollIntoView({ block: 'center', behavior: 'smooth' });
+		getResult() {
+			this.clasificando = true;
+			this.errorMessage = '';
+			this.group = null;
+			this.groupName = null;
 
-			this.group = 'A-';
+			this.checkInputs();
 
-			if (this.esGranular == 'granular' && this.granulometria) {
-				this.group += '2-';
-				this.groupName = 'gravas con limo o arcilla y arena';
+			if (this.errorMessage === '') {
+				this.group = 'A-';
 
-				if (this.tamiz40 <= 50) {
-					this.groupName = 'fragmentos petreos, grava y arena';
+				if (this.esGranular == 'granular' && this.granulometria) {
+					this.group += '2-';
+					this.groupName = 'gravas con limo o arcilla y arena';
 
-					if (this.tamiz200 <= 25 && this.indicePlasticidad <= 6) {
-						this.group = 'A-1-b';
-					}
+					if (this.tamiz40 <= 50) {
+						this.groupName = 'fragmentos petreos, grava y arena';
 
-					if (
-						this.tamiz10 <= 50 &&
-						this.tamiz200 <= 15 &&
-						this.indicePlasticidad <= 6
-					) {
-						this.group = 'A-1-a';
-					}
-				} else {
-					if (this.tamiz200 <= 10 && this.indicePlasticidad === null) {
-						this.group = 'A-3';
-						this.groupName = 'arena fina';
+						if (this.tamiz200 <= 25 && this.indicePlasticidad <= 6) {
+							this.group = 'A-1-b';
+						}
+
+						if (
+							this.tamiz10 <= 50 &&
+							this.tamiz200 <= 15 &&
+							this.indicePlasticidad <= 6
+						) {
+							this.group = 'A-1-a';
+						}
+					} else {
+						if (this.tamiz200 <= 10 && this.indicePlasticidad === null) {
+							this.group = 'A-3';
+							this.groupName = 'arena fina';
+						}
 					}
 				}
-			}
 
-			if (this.indicePlasticidad) {
-				if (this.limiteLiquido <= 40) {
-					if (this.indicePlasticidad <= 10) {
-						this.group += '4';
-						if (this.esGranular === 'limo-arcilloso') {
-							this.groupName = 'suelos limosos';
+				if (this.indicePlasticidad) {
+					if (this.limiteLiquido <= 40) {
+						if (this.indicePlasticidad <= 10) {
+							this.group += '4';
+							if (this.esGranular === 'limo-arcilloso') {
+								this.groupName = 'suelos limosos';
+							}
+						} else {
+							this.group += '6';
+							if (this.esGranular === 'limo-arcilloso') {
+								this.groupName = 'suelos arcillosos';
+							}
 						}
 					} else {
-						this.group += '6';
-						if (this.esGranular === 'limo-arcilloso') {
-							this.groupName = 'suelos arcillosos';
-						}
-					}
-				} else {
-					if (this.indicePlasticidad <= 10) {
-						this.group += '5';
-						if (this.esGranular === 'limo-arcilloso') {
-							this.groupName = 'suelos limosos';
-						}
-					} else {
-						this.group += '7';
-						if (this.esGranular === 'limo-arcilloso') {
-							this.groupName = 'suelos arcillosos';
-							if (this.indicePlasticidad <= this.limiteLiquido - 30) {
-								this.group += '-5';
-							} else {
-								this.group += '-6';
+						if (this.indicePlasticidad <= 10) {
+							this.group += '5';
+							if (this.esGranular === 'limo-arcilloso') {
+								this.groupName = 'suelos limosos';
+							}
+						} else {
+							this.group += '7';
+							if (this.esGranular === 'limo-arcilloso') {
+								this.groupName = 'suelos arcillosos';
+								if (this.indicePlasticidad <= this.limiteLiquido - 30) {
+									this.group += '-5';
+								} else {
+									this.group += '-6';
+								}
 							}
 						}
 					}
 				}
 			}
+
+			this.scrollToResult();
 		},
 	},
 
@@ -252,6 +266,7 @@ export default {
 			let systemName = this.isAashto ? 'AASHTO' : 'SUCS';
 			return systemName;
 		},
+
 		tamiz10() {
 			return soilData.data.tamiz10;
 		},
