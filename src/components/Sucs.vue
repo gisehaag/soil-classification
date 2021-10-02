@@ -1,6 +1,9 @@
 <template>
 	<div class="">
-		<div class="box flex justify-around">
+		<div
+			class="box flex px-8 w-5/6 m-auto"
+			v-bind:class="{ justify: groupName }"
+		>
 			<form
 				novalidate
 				class="inputs text-center"
@@ -34,8 +37,9 @@
 				</button>
 			</form>
 
-			<div class="data" id="datos">
-				<h2 class="font-bold text-lg my-4">Características del suelo:</h2>
+			<div v-if="groupName" class="data" id="datos">
+				<hr class="separador" />
+				<h2 class="font-bold text-lg mb-4">Características del suelo:</h2>
 
 				<div class="data-list">
 					<ul class="text-left">

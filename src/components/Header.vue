@@ -4,7 +4,6 @@
 			flex
 			items-center
 			border-1 border-gray-200
-			pl-6
 			text-xl
 			bg-white bg-opacity-100
 			font-extrabold
@@ -12,7 +11,7 @@
 		id="header"
 	>
 		<div>
-			<ul>
+			<ul class="items-center justify-center px-6">
 				<li><router-link to="/">Inicio</router-link></li>
 				<li>
 					<router-link to="/clasificar/sucs">SUCS</router-link>
@@ -51,6 +50,7 @@ export default {
 
 <style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+@import '@/assets/scss/components';
 
 $primary-color: #ffb400;
 
@@ -69,10 +69,16 @@ header {
 ul {
 	display: flex;
 	justify-content: space-between;
+	margin-left: 1rem;
+	margin-right: 1rem;
 }
 
 li {
 	margin-right: 35px;
+}
+
+li:last-child {
+	margin-right: 0px;
 }
 
 li:hover {

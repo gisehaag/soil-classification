@@ -47,7 +47,15 @@
 							min="0"
 							max="100"
 							type="number"
-							class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
+							class="
+								text-center
+								bg-white
+								focus:outline-none
+								focus:shadow-outline
+								border border-gray-500
+								rounded-lg
+								leading-normal
+							"
 							placeholder="Límite líquido"
 						/>
 						<p class="error text-red-400"></p>
@@ -65,7 +73,15 @@
 							min="0"
 							max="100"
 							type="number"
-							class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
+							class="
+								text-center
+								bg-white
+								focus:outline-none
+								focus:shadow-outline
+								border border-gray-500
+								rounded-lg
+								leading-normal
+							"
 							placeholder="Límite Plástico"
 						/>
 						<p class="error text-red-400"></p>
@@ -78,14 +94,14 @@
 			</p>
 			<div v-else>
 				<p v-if="indicePlasticidad" class="text-left font-bold">
-					<span v-if="!isAashto">
+					<span class="mb-2" v-if="!isAashto">
 						{{
 							!lineaU
 								? `Índice de plasticidad ${indicePlasticidad}`
 								: `Verificar datos, material sobre la línea U.`
 						}}
 					</span>
-					<span v-else>
+					<span class="mb-2" v-else>
 						{{
 							!lineaU
 								? `Índice de plasticidad ${indicePlasticidad}`
