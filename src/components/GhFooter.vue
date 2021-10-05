@@ -17,7 +17,7 @@
 				/>
 			</span>
 			<span>by</span>
-			<a href="https://gisehaag.com" target="_blank">GisehaaG</a>
+			<a href="https://gisehaag.com/projects" target="_blank">GisehaaG</a>
 			<span>
 				<img
 					width="12px"
