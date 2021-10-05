@@ -198,7 +198,7 @@ export default {
 				this.group = 'A-';
 
 				if (this.esGranular == 'granular' && this.granulometria) {
-					this.group += '2-';
+					this.group += '2';
 					this.groupName = 'gravas con limo o arcilla y arena';
 
 					if (this.tamiz40 <= 50) {
@@ -224,6 +224,10 @@ export default {
 				}
 
 				if (this.indicePlasticidad) {
+					if (this.esGranular == 'granular') {
+						this.group += '-';
+					}
+
 					if (this.limiteLiquido <= 40) {
 						if (this.indicePlasticidad <= 10) {
 							this.group += '4';
