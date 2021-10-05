@@ -30,6 +30,10 @@ input {
 	width: 30%;
 }
 
+.inputs {
+	width: calc(60% - 8rem);
+}
+
 .invalid {
 	border: 1px solid red !important;
 }
@@ -38,12 +42,8 @@ input::placeholder {
 	font-size: 0.7em;
 }
 
-.error {
-	width: 100%;
-}
 
 .justify {
-	// justify-content: space-around;
 	justify-content: start;
 }
 
@@ -108,6 +108,7 @@ input::placeholder {
 	form,
 	.results,
 	.data,
+	.inputs,
 	.pasa-tamiz40 {
 		width: 90vw;
 		margin: 0 auto;

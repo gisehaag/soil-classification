@@ -58,8 +58,8 @@
 							"
 							placeholder="Límite líquido"
 						/>
-						<p class="error text-red-400"></p>
 					</label>
+					<div class="error text-red-400"></div>
 				</li>
 				<li class="mb-4">
 					<label class="" for="limite-plastico"
@@ -84,8 +84,8 @@
 							"
 							placeholder="Límite Plástico"
 						/>
-						<p class="error text-red-400"></p>
 					</label>
+					<div class="error text-red-400"></div>
 				</li>
 			</ul>
 
@@ -151,8 +151,10 @@ export default {
 	methods: {
 		sendData(e) {
 			const porcentaje = e.target.value;
-			const id = e.target.id;
-			const msgError = document.querySelector(`#${id} + p.error`);
+			const tamiz = e.target.id;
+			const inputElement = document.querySelector(`#${tamiz}`);
+			const msgError = inputElement.parentElement.nextSibling;
+
 			e.target.classList.remove('invalid');
 			msgError.innerHTML = '';
 

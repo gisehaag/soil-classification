@@ -33,11 +33,19 @@
 							min="0"
 							max="100"
 							type="number"
-							class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
+							class="
+								text-center
+								bg-white
+								focus:outline-none
+								focus:shadow-outline
+								border border-gray-500
+								rounded-lg
+								leading-normal
+							"
 							placeholder="entre 0 y 100%"
 						/>
-						<p class="error text-red-400"></p>
 					</label>
+					<div class="error text-red-400"></div>
 				</li>
 				<li class="">
 					<label class="item-granulometria" for="tamiz2-1/2">
@@ -52,11 +60,19 @@
 							min="0"
 							max="100"
 							type="number"
-							class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
+							class="
+								text-center
+								bg-white
+								focus:outline-none
+								focus:shadow-outline
+								border border-gray-500
+								rounded-lg
+								leading-normal
+							"
 							placeholder="entre 0 y 100%"
 						/>
-						<p class="error text-red-400"></p>
 					</label>
+					<div class="error text-red-400"></div>
 				</li>
 				<li class="">
 					<label class="item-granulometria" for="tamiz2">
@@ -71,11 +87,19 @@
 							min="0"
 							max="100"
 							type="number"
-							class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
+							class="
+								text-center
+								bg-white
+								focus:outline-none
+								focus:shadow-outline
+								border border-gray-500
+								rounded-lg
+								leading-normal
+							"
 							placeholder="entre 0 y 100%"
 						/>
-						<p class="error text-red-400"></p>
 					</label>
+					<div class="error text-red-400"></div>
 				</li>
 				<li class="">
 					<label class="item-granulometria" for="tamiz1-1/2">
@@ -90,11 +114,19 @@
 							min="0"
 							max="100"
 							type="number"
-							class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
+							class="
+								text-center
+								bg-white
+								focus:outline-none
+								focus:shadow-outline
+								border border-gray-500
+								rounded-lg
+								leading-normal
+							"
 							placeholder="entre 0 y 100%"
 						/>
-						<p class="error text-red-400"></p>
 					</label>
+					<div class="error text-red-400"></div>
 				</li>
 				<li class="">
 					<label class="item-granulometria" for="tamiz1">
@@ -109,11 +141,19 @@
 							min="0"
 							max="100"
 							type="number"
-							class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
+							class="
+								text-center
+								bg-white
+								focus:outline-none
+								focus:shadow-outline
+								border border-gray-500
+								rounded-lg
+								leading-normal
+							"
 							placeholder="entre 0 y 100%"
 						/>
-						<p class="error text-red-400"></p>
 					</label>
+					<div class="error text-red-400"></div>
 				</li>
 
 				<!-- <div>
@@ -146,11 +186,19 @@
 						min="0"
 						max="100"
 						type="number"
-						class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
+						class="
+							text-center
+							bg-white
+							focus:outline-none
+							focus:shadow-outline
+							border border-gray-500
+							rounded-lg
+							leading-normal
+						"
 						placeholder="entre 0 y 100%"
 					/>
-					<p class="error text-red-400"></p>
 				</label>
+				<div class="error text-red-400"></div>
 			</li>
 			<li class="mb-4">
 				<label class="item-granulometria" for="tamiz1/2">
@@ -165,11 +213,19 @@
 						min="0"
 						max="100"
 						type="number"
-						class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
+						class="
+							text-center
+							bg-white
+							focus:outline-none
+							focus:shadow-outline
+							border border-gray-500
+							rounded-lg
+							leading-normal
+						"
 						placeholder="entre 0 y 100%"
 					/>
-					<p class="error text-red-400"></p>
 				</label>
+				<div class="error text-red-400"></div>
 			</li>
 			<li class="mb-4">
 				<label class="item-granulometria" for="tamiz3/8">
@@ -184,11 +240,19 @@
 						min="0"
 						max="100"
 						type="number"
-						class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
+						class="
+							text-center
+							bg-white
+							focus:outline-none
+							focus:shadow-outline
+							border border-gray-500
+							rounded-lg
+							leading-normal
+						"
 						placeholder="entre 0 y 100%"
 					/>
-					<p class="error text-red-400"></p>
 				</label>
+				<div class="error text-red-400"></div>
 			</li>
 			<li class="mb-4">
 				<label class="item-granulometria" for="tamiz4">
@@ -207,11 +271,19 @@
 						min="0"
 						max="100"
 						type="number"
-						class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
+						class="
+							text-center
+							bg-white
+							focus:outline-none
+							focus:shadow-outline
+							border border-gray-500
+							rounded-lg
+							leading-normal
+						"
 						placeholder="entre 0 y 100%"
 					/>
-					<p class="error text-red-400"></p>
 				</label>
+				<div class="error text-red-400"></div>
 			</li>
 			<li class="mb-4">
 				<label class="item-granulometria" for="tamiz10">
@@ -230,11 +302,19 @@
 						min="0"
 						max="100"
 						type="number"
-						class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
+						class="
+							text-center
+							bg-white
+							focus:outline-none
+							focus:shadow-outline
+							border border-gray-500
+							rounded-lg
+							leading-normal
+						"
 						placeholder="entre 0 y 100%"
 					/>
-					<p class="error text-red-400"></p>
 				</label>
+				<div class="error text-red-400"></div>
 			</li>
 			<li class="mb-4">
 				<label class="item-granulometria" for="tamiz40">
@@ -253,11 +333,19 @@
 						min="0"
 						max="100"
 						type="number"
-						class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
+						class="
+							text-center
+							bg-white
+							focus:outline-none
+							focus:shadow-outline
+							border border-gray-500
+							rounded-lg
+							leading-normal
+						"
 						placeholder="entre 0 y 100%"
 					/>
-					<p class="error text-red-400"></p>
 				</label>
+				<div class="error text-red-400"></div>
 			</li>
 			<li class="mb-4">
 				<label class="item-granulometria" for="tamiz100">
@@ -272,11 +360,19 @@
 						min="0"
 						max="100"
 						type="number"
-						class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
+						class="
+							text-center
+							bg-white
+							focus:outline-none
+							focus:shadow-outline
+							border border-gray-500
+							rounded-lg
+							leading-normal
+						"
 						placeholder="entre 0 y 100%"
 					/>
-					<p class="error text-red-400"></p>
 				</label>
+				<div class="error text-red-400"></div>
 			</li>
 			<li class="mb-4">
 				<label class="item-granulometria" for="tamiz200">
@@ -295,11 +391,19 @@
 						min="0"
 						max="100"
 						type="number"
-						class="text-center bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg leading-normal"
+						class="
+							text-center
+							bg-white
+							focus:outline-none
+							focus:shadow-outline
+							border border-gray-500
+							rounded-lg
+							leading-normal
+						"
 						placeholder="entre 0 y 100%"
 					/>
-					<p class="error text-red-400"></p>
 				</label>
+				<div class="error text-red-400"></div>
 			</li>
 		</ul>
 		<p class="text-left text-sm">
@@ -359,24 +463,28 @@ export default {
 		addDataToGranulometry(e) {
 			let tamiz = e.target.id;
 			let pasante = e.target.value;
-			const inputMsgError = document.querySelector(`#${tamiz} + p.error`);
+			const inputElement = document.querySelector(`#${tamiz}`);
+			const inputMsgError = inputElement.parentElement.nextSibling;
 			const itemsGranulometria = document.querySelectorAll(
 				`label.item-granulometria`
 			);
 
 			itemsGranulometria.forEach((item) => {
-				let message = item.querySelector('p.error');
+				console.log(item);
+				let message = item.nextSibling;
 				let input = item.querySelector('input');
 				message.innerHTML = '';
 				input.classList.remove('invalid');
 			});
 
 			if (pasante < 0) {
+				// inputMsgError.classList.add('visible');
 				inputMsgError.innerHTML = `🙄 Ingresa un valor positivo`;
 				e.target.focus();
 				e.target.classList.add('invalid');
 			}
 			if (pasante > 100) {
+				// inputMsgError.classList.add('visible');
 				inputMsgError.innerHTML = `😳 El valor ingresado debe ser menor que 100%`;
 				e.target.focus();
 				e.target.classList.add('invalid');
@@ -410,7 +518,9 @@ export default {
 							: null;
 						if (diametroMayor) {
 							if (element[1] > diametroMayor) {
-								inputMsgError.innerHTML = `<p>🤨 Revisa el valor ${pasante}%.</p>
+								// inputMsgError.classList.add('visible'	);
+
+								inputMsgError.innerHTML = `<p>🤨 Revisa el valor ${pasante}%</p>
 															<p>Los porcentajes deben ser decrecientes a medida que la abertura de los tamices disminuye.</p>`;
 								e.target.select();
 								e.target.focus();
@@ -419,7 +529,9 @@ export default {
 						}
 						if (diametroMenor) {
 							if (element[1] < diametroMenor) {
-								inputMsgError.innerHTML = `<p>🤨 Revisa el valor ${pasante}%.</p>
+								// inputMsgError.classList.add('visible');
+
+								inputMsgError.innerHTML = `<p>🤨 Revisa el valor ${pasante}%</p>
 															<p>Los porcentajes deben ser decrecientes a medida que la abertura de los tamices disminuye.</p>`;
 								e.target.select();
 								e.target.focus();
