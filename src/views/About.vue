@@ -133,7 +133,18 @@
 			(2mm), Nº 40 (0,425mm) y Nº 200 (0,075mm) son requeridos.
 		</p>
 
-		<div></div>
+		<p class="mb-4">
+			Para evaluar la calidad del suelo para ser utilizado en la contrucción
+			de carreteras o aeropuertos como material de terraplenes, subrasantes,
+			sub-bases y bases, este método incorporá el
+			<span class="font-bold">Índice de Grupo (IG)</span>. En terminos
+			generales, la calidad del comportamiento de un suelo es inversamente
+			proporcional al índice de grupo. Este número se obtiene en función de
+			los valores de plasticidad (límite líquido e índice de plasticidad) y
+			el porcentaje pasante tamiz Nº 200 de clasificación. En el resultado de
+			la clasificación el IG se indica entre parentesis a continuación del
+			grupo obtenido.
+		</p>
 	</div>
 </template>
 

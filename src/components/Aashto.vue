@@ -94,7 +94,9 @@
 
 					<h1 v-if="groupName" class="mb-4">
 						Grupo de clasificación:
-						<span class="yellow-text">{{ group }}</span>
+						<span class="yellow-text">
+							{{ group }} ({{ indexGroup }})</span
+						>
 					</h1>
 					<!-- <h1 v-else>Necesito más datos para clasificar 🧐...</h1> -->
 				</div>
@@ -131,6 +133,7 @@ export default {
 			// graphicData: [],
 			group: null,
 			groupName: null,
+			indexGroup: null,
 			errorMessage: null,
 			isAashto: true,
 		};
@@ -138,15 +141,11 @@ export default {
 
 	methods: {
 		scrollToResult() {
-			// console.log('scroll?');
 			let resultBox = document.querySelector('.result-container');
-			// console.log(resultBox);
 			resultBox.scrollIntoView({
 				block: 'center',
 				behavior: 'smooth',
 			});
-			// console.log('llega aca?');
-			// document.querySelector('.results').scrollIntoView();
 		},
 
 		checkInputs() {
@@ -183,6 +182,29 @@ export default {
 
 					return;
 				}
+			}
+		},
+
+		getIndexGroup() {
+			const A = this.tamiz200 - 35;
+			const B = 0.2 + 0.005 * (this.limiteLiquido - 40);
+			const C = 0.01 * (this.tamiz200 - 15) * (this.indicePlasticidad - 10);
+
+			this.indexGroup = Math.round(A * B + C);
+
+			if (
+				this.indexGroup < 0 ||
+				this.group == 'A-1-a' ||
+				this.group == 'A-1-b' ||
+				this.group == 'A-2-4' ||
+				this.group == 'A-2-5' ||
+				this.group == 'A-3'
+			) {
+				this.indexGroup = 0;
+			}
+
+			if (this.group == 'A-2-6' || this.group == 'A-2-7') {
+				this.indexGroup = Math.round(C);
 			}
 		},
 
@@ -260,6 +282,7 @@ export default {
 					}
 				}
 			}
+			this.getIndexGroup();
 
 			this.scrollToResult();
 		},
