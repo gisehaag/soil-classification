@@ -20,6 +20,13 @@ export default {
 			title: 'Clasificación de Suelos para uso ingenieril',
 		};
 	},
+
+	watch: {
+		$route(page) {
+			document.title =
+				page.meta.title || 'Clasificación de Suelos para uso ingenieril';
+		},
+	},
 };
 </script>
 
