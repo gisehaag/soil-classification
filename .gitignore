@@ -26,6 +26,6 @@ pnpm-debug.log*
 .prettierrc.js
 
 # Other files
-*.png
 *.pdf
 todo.md
+carta de plasticidad.png
