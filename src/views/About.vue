@@ -4,7 +4,7 @@
 			Cómo funciona esta aplicación?
 		</h1>
 		<p class="mb-4">
-			Esta app contempla la clasificación de suelos para uso en Ingeniería
+			Esta webapp contempla la clasificación de suelos para uso en Ingeniería
 			Civil.
 		</p>
 
@@ -24,7 +24,7 @@
 		</p>
 
 		<p class="mb-4">
-			Como dato de entrada deberá intruducirse la granulometría del suelo,
+			Como dato de entrada deberá introducirse la granulometría del suelo,
 			proporcionando los porcentajes de material pasante por cada uno de los
 			tamices de la serie ASTM E11. Si bien según el método que se esté
 			utilizando podrían no ser completados todos los porcentajes pasantes de
