@@ -97,6 +97,7 @@ $primary-color: #ffb400;
 
 .left-box {
 	background-image: var(--background-img);
+	background-size: cover;
 	color: white;
 	position: relative;
 
