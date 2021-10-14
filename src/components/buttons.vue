@@ -1,18 +1,26 @@
 <template>
-	<div class="buttons text-center mr-8 pb-8 text-xs">
+	<div class="buttons text-center pb-8 text-xs">
 		<button
-			class="mt-5 hover:text-white text-grey-500 font-bold py-2 px-5 uppercase"
+			class="
+				mt-5
+				hover:text-white
+				text-grey-500
+				font-bold
+				py-2
+				px-5
+				uppercase
+			"
 			@click="resetValues"
 		>
 			Borrar valores
 		</button>
 
-		<button
+		<!-- <button
 			class="mt-5 hover:text-white text-grey-500 font-bold py-2 px-5 uppercase"
 			@click="print"
 		>
 			Imprimir
-		</button>
+		</button> -->
 	</div>
 </template>
 
@@ -72,7 +80,7 @@ button:hover {
 	border-color: transparent;
 }
 
-button:first-child {
-	margin-right: 100px;
-}
+// button:first-child {
+// 	margin-right: 100px;
+// }
 </style>
