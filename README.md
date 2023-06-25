@@ -6,4 +6,4 @@ En ingenieria clasificamos los suelos para poder predecir su comportamiento cuan
 
 Por otra parte, como programadora, y con el curso de Vue súper fresco, quería aprovechar todo ese nuevo conocimiento y poder ponerlo en práctica.
 
-Este es el proyecto de clasificación de suelos terminado! 
+Este es el proyecto de clasificación de suelos terminado https://clasificador.gisehaag.com/ 🚀
